@@ -1,3 +1,9 @@
+[![Hugging Face Spaces](https://img.shields.io/badge/🤗%20Hugging%20Face-Space-blue)](https://huggingface.co/spaces/mgoloshchapov/PaperClassified)
+![Gradio](https://img.shields.io/badge/UI-Gradio-blue)
+![Python](https://img.shields.io/badge/python-3.13-blue)
+
+
+
 ## Project description
 
 The project implements simple arXiv categories paper classifier. It uses SciBERT+Classifier head model trained over [CLS] token to predict article category given title, abstract or any part of the article text. Check [description.md](description.md) for more details.

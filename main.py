@@ -87,6 +87,8 @@ def main() -> None:
     logits = session.run(["logits"], ort_inputs)[0][0]
     top_indices = np.argsort(logits)[::-1][:top_k]
 
+    print(text)
+    print("------------------------------")
     for index in top_indices:
         label = metadata["labels"][int(index)]
         print(f"{label}: {ARXIV_CATEGORIES[label]}")

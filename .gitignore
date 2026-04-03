@@ -16,3 +16,7 @@ AGENTS.md
 visualization.ipynb
 results/
 extra/
+
+space/
+.playwright-cli/
+.ruff_cache/
