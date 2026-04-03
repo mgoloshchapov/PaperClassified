@@ -27,6 +27,11 @@ You can run trained model exported in onnx using this command
 uv run main.py --top_k=3 "Reinforcement learning from human feedback"
 ```
 
+```
+cs: Computer Science
+stat: Statistics
+```
+
 ## Training
 
 To download data from kaggle https://www.kaggle.com/datasets/Cornell-University/arxiv?resource=download and preprocess it with SciBert just run this script. After that the original data and processed data train, test, val splits will be stored in `data/` folder.
