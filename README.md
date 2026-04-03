@@ -4,6 +4,8 @@
 
 
 
+![A](images/image.jpg)
+
 ## Project description
 
 The project implements simple arXiv categories paper classifier. It uses SciBERT+Classifier head model trained over [CLS] token to predict article category given title, abstract or any part of the article text. Check [description.md](description.md) for more details.
