@@ -27,8 +27,33 @@ TOP_K = 3
 METADATA_PATH = Path("models/best.metadata.json")
 
 
+def parse_args(argv: list[str]) -> tuple[str, int]:
+    top_k = TOP_K
+    text_parts: list[str] = []
+    index = 0
+
+    while index < len(argv):
+        argument = argv[index]
+        if argument.startswith("--top_k=") or argument.startswith("--top-k="):
+            top_k = int(argument.split("=", maxsplit=1)[1])
+        elif argument in {"--top_k", "--top-k"}:
+            index += 1
+            if index >= len(argv):
+                raise ValueError(f"Missing value for {argument}")
+            top_k = int(argv[index])
+        else:
+            text_parts.append(argument)
+        index += 1
+
+    if top_k <= 0:
+        raise ValueError("top_k must be positive")
+
+    text = " ".join(text_parts).strip() or DEFAULT_TEXT
+    return text, top_k
+
+
 def main() -> None:
-    text = " ".join(sys.argv[1:]).strip() or DEFAULT_TEXT
+    text, top_k = parse_args(sys.argv[1:])
     text = " ".join(text.split())
 
     metadata = json.loads(METADATA_PATH.read_text())
@@ -60,7 +85,7 @@ def main() -> None:
         "token_type_ids": inputs["token_type_ids"].astype(np.int64),
     }
     logits = session.run(["logits"], ort_inputs)[0][0]
-    top_indices = np.argsort(logits)[::-1][:TOP_K]
+    top_indices = np.argsort(logits)[::-1][:top_k]
 
     for index in top_indices:
         label = metadata["labels"][int(index)]
