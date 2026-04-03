@@ -1,0 +1,12 @@
+defaults:
+  - data: tfidf
+  - _self_
+
+tfidf:
+  max_features: 8192
+  min_df: 2
+  max_df: 0.95
+  ngram_range:
+    - 1
+    - 2
+  vectorizer_path: ${data.data_dir}/tfidf_vectorizer.pkl

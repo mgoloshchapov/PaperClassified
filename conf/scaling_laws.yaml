@@ -1,0 +1,8 @@
+defaults:
+  - train
+  - _self_
+
+epochs: 50
+min_train_power: 7
+max_train_power: 13
+results_path: results/scaling.csv

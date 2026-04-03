@@ -1,0 +1,19 @@
+# Main model config
+encoder_type: hf
+name: allenai/scibert_scivocab_uncased
+freeze_encoder: true
+num_layers: 2
+hidden_dim: 128
+dropout: 0.4835274733490438
+max_length: 384
+input_dim: null
+
+# TF-IDF config
+# encoder_type: hf
+# name: allenai/scibert_scivocab_uncased
+# freeze_encoder: true
+# num_layers: 2
+# hidden_dim: 256
+# dropout: 0.2796351882084885
+# max_length: 384
+# input_dim: null

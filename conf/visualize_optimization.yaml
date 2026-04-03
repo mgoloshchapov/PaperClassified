@@ -1,0 +1,5 @@
+defaults:
+  - optuna: default
+  - _self_
+
+output_dir: plots

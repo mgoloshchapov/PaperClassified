@@ -1,0 +1,12 @@
+defaults:
+  - data: default
+  - model: default
+  - _self_
+
+seed: 42
+device: auto
+sample_size: 15000
+preprocess_batch_size: 64
+download:
+  enabled: true
+  dataset: Cornell-University/arxiv

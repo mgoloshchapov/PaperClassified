@@ -1,0 +1,13 @@
+defaults:
+  - data: default
+  - model: default
+  - loss: default
+  - _self_
+
+device: auto
+batch_size: 512
+split: test
+checkpoint_path: models/best.pt
+output_predictions: false
+max_prediction_rows: 10
+top_k: 3

@@ -1,0 +1,16 @@
+defaults:
+  - data: default
+  - model: default
+  - loss: default
+  - optimizer: adamw
+  - scheduler: none
+  - wandb: default
+  - _self_
+
+seed: 42
+device: auto
+batch_size: 256
+epochs: 50
+checkpoint_dir: models
+best_checkpoint_name: best.pt
+last_checkpoint_name: last.pt

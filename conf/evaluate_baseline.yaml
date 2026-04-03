@@ -1,0 +1,11 @@
+defaults:
+  - data: default
+  - _self_
+
+batch_size: 512
+split: test
+reference_split: train
+output_predictions: false
+max_prediction_rows: 10
+top_k: 3
+epsilon: 1.0e-8

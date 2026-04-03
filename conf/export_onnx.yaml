@@ -1,0 +1,16 @@
+defaults:
+  - _self_
+
+device: cpu
+checkpoint_path: models/best.pt
+output_path: models/best.onnx
+metadata_path: null
+tokenizer_dir: null
+save_tokenizer: true
+opset_version: 17
+max_length: null
+dummy_batch_size: 1
+example_text: "Sample paper title Sample abstract for ONNX export."
+verify: true
+verify_atol: 1.0e-4
+verify_rtol: 1.0e-4
