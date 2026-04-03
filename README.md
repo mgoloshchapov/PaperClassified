@@ -1,3 +1,7 @@
+## Project description
+
+The project implements simple arXiv categories paper classifier. It uses SciBERT+Classifier head model trained over [CLS] token to predict article category given title, abstract or any part of the article text. Check [description.md](description.md) for more details.
+
 ## Environment setup
 
 If you don't have `uv` package manager, first download it
@@ -16,14 +20,41 @@ uv sync
 
 ## Enrty point
 
+
+You can run trained model exported in onnx using this command
+
+```python
+uv run main.py --top_k=3 "Reinforcement learning from human feedback"
+```
+
+## Training
+
 To download data from kaggle https://www.kaggle.com/datasets/Cornell-University/arxiv?resource=download and preprocess it with SciBert just run this script. After that the original data and processed data train, test, val splits will be stored in `data/` folder.
 
 ```python
 uv run src/prepare.py
 ```
 
-After that you can run training with `uv run src/train.py` and optimization of hyper-parameters with `uv run src/hyper_optimization.py`. To evaluate the model, you can run `uv run src/evaluate.py`.
+After that you can run training with `uv run src/train.py` and optimization of hyper-parameters with `uv run src/hyper_optimization.py`. To evaluate the model, you can run `uv run src/evaluate.py.
 
+Also, the repo supports TF-IDF model baseline. To run training and evaluation follow these steps
+
+```python
+uv run src/prepare.py
+uv run baseline/prepare_tfidf.py
+uv run baseline/evaluate_tfidf.py
+```
+
+If you want to run hyper-parameter optimization for TF-IDF model, just run
+
+```python
+uv run src/hyper_optimization.py data=tfidf model=tfidf
+```
+And in separate terminal you can start optuna-dashboard server using
+
+```python
+uv run optuna-dashboard sqlite:///optuna_study.db
+```
 ## Metrics
 
 Results of evaluation on 2.5k size test dataset after training on 10k size train dataset and hyper-parameter optimization on 2.5k validation dataset
