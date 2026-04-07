@@ -34,6 +34,12 @@ will be encoded as vector with three non-zero entries equal to 1/3 on respective
 
 As for the loss function I use cross-entropy loss weighted by class ratios in training data.
 
+Trainig is done on 10k samples from arXiv Kaggle dataset. I found that this is enough to receive good quality of the classifier head on top of SciBERT(basically, a projection from embeddings to class probabilities), and further increasing of training data size doesn't give substantial gains.
+
+![A](images/scaling.png)
+
+
+
 ## Comparison to baselines
 
 First, it's useful to discuss how the model decodes output and what metrics are used to evaluate the quality.

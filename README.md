@@ -4,7 +4,7 @@
 
 
 
-![A](images/image.jpg)
+![](images/image.jpg)
 
 ## Project description
 
